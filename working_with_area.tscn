@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://i75fpn4craa4"]
+
+[ext_resource type="Script" path="res://working_with_area.gd" id="1_1b3ia"]
+[ext_resource type="PackedScene" uid="uid://y11vh6yseuy1" path="res://shaders.tscn" id="3_gqfny"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2d8m"]
+radius = 160.078
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1b3ia")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j2d8m")
+
+[node name="Node2D" parent="." instance=ExtResource("3_gqfny")]
+position = Vector2(241, 225)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 176.0
+offset_top = 29.0
+offset_right = 311.0
+offset_bottom = 97.0
+text = "click to show magic"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 483.0
+offset_top = 48.0
+offset_right = 618.0
+offset_bottom = 112.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

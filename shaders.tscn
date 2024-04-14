@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://y11vh6yseuy1"]
+
+[ext_resource type="Script" path="res://shaders.gd" id="1_on64o"]
+[ext_resource type="Texture2D" uid="uid://bj6u4lgjc0ev7" path="res://icon.svg" id="3_l34eo"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_on64o")
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 300.0
+offset_top = 545.0
+offset_right = 450.0
+offset_bottom = 610.0
+text = "-100"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(891, 467)
+scale = Vector2(0.835938, 1)
+texture = ExtResource("3_l34eo")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 202.0
+offset_top = 104.0
+offset_right = 283.0
+offset_bottom = 145.0
+text = "click to reveal the music behind it."
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 677.0
+offset_top = 118.0
+offset_right = 1016.0
+offset_bottom = 158.0
+text = "reset the button"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 545.0
+offset_right = 179.0
+offset_bottom = 610.0
+text = "+100"
+
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

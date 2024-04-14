@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ejglpdngfhi"]
+
+[ext_resource type="Script" path="res://procedural_gen.gd" id="1_hwcty"]
+[ext_resource type="Texture2D" uid="uid://bj6u4lgjc0ev7" path="res://icon.svg" id="2_hqhp8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hwcty")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(1428, 169)
+scale = Vector2(27.4, 16.45)
+enable_mode = 1
+enable_node_path = NodePath("../Camera2D/Icon")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(113, 83)
+offset = Vector2(0.115, 0)
+
+[node name="Button" type="Button" parent="Camera2D"]
+offset_left = -94.0
+offset_top = 40.0
+offset_right = 81.0
+offset_bottom = 116.0
+text = "+100"
+
+[node name="Icon" type="Sprite2D" parent="Camera2D"]
+texture = ExtResource("2_hqhp8")
+
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]

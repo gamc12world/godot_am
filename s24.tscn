@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://drlqtk1elp20c"]
+
+[ext_resource type="PackedScene" uid="uid://bpq3h2uwdk110" path="res://s1.tscn" id="1_c65vc"]
+[ext_resource type="Script" path="res://s24.gd" id="1_jy5qv"]
+[ext_resource type="PackedScene" uid="uid://cad46w7ejnd2k" path="res://player.tscn" id="2_ojhsp"]
+[ext_resource type="AudioStream" uid="uid://cqe7jevn0n8b7" path="res://Alan Walker  The Spectre [Extended Intro Remix #10474].mp3" id="4_4qx3q"]
+[ext_resource type="Script" path="res://MenuButton.gd" id="5_0w650"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxtb2"]
+size = Vector2(509, 250)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jy5qv")
+
+[node name="TileMap" parent="." instance=ExtResource("1_c65vc")]
+layer_0/tile_data = PackedInt32Array(524308, 196609, 4, 524309, 196609, 4, 524310, 196609, 4, 720919, 196609, 3, 720920, 196609, 3, 720921, 196609, 3, 720922, 196609, 3, 720923, 196609, 3, 720924, 196609, 3, 720905, 196609, 3, 720906, 196609, 3, 720907, 196609, 3, 720908, 196609, 3, 720909, 196609, 3, 720910, 196609, 3, 720911, 196609, 3, 720912, 196609, 3, 720913, 196609, 3, 720914, 196609, 3, 720915, 196609, 3, 720916, 196609, 3, 720917, 196609, 3, 720918, 196609, 3, 720925, 196609, 3, 720926, 196609, 3, 720927, 196609, 3, 720928, 196609, 3, 655372, 196609, 4, 655373, 196609, 4, 655374, 196609, 4, 655375, 196609, 4, 589840, 196609, 4, 589841, 196609, 4, 589842, 196609, 4, 589843, 196609, 4, 524311, 196609, 4, 524312, 196609, 4, 458776, 196609, 4, 458777, 196609, 4, 458778, 196609, 4, 458779, 196609, 4, 458780, 196609, 4, 393244, 196609, 4, 393245, 196609, 4, 393246, 196609, 4)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_ojhsp")]
+position = Vector2(165, 151)
+
+[node name="VSlider" type="VSlider" parent="."]
+offset_left = 244.0
+offset_top = 94.0
+offset_right = 260.0
+offset_bottom = 160.0
+max_value = 2.0
+value = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4qx3q")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4qx3q")
+max_distance = 925.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(491, 223)
+shape = SubResource("RectangleShape2D_rxtb2")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_left = 203.0
+offset_top = 96.0
+offset_right = 381.0
+offset_bottom = 140.0
+text = "hey"
+item_count = 3
+popup/item_0/text = "niceone"
+popup/item_0/id = 0
+popup/item_1/text = "jayshreeram"
+popup/item_1/id = 1
+popup/item_2/text = "niceman"
+popup/item_2/id = 2
+script = ExtResource("5_0w650")
+
+[node name="Popup" type="Popup" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 6630.0
+avoidance_enabled = true
+debug_path_custom_color = Color(0.439216, 0.580392, 0.160784, 1)
+
+[connection signal="value_changed" from="VSlider" to="." method="_on_v_slider_value_changed"]
+[connection signal="about_to_popup" from="MenuButton" to="." method="_on_menu_button_about_to_popup"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

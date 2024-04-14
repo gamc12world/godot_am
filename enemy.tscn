@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c41g6h16whgw7"]
+
+[ext_resource type="Texture2D" uid="uid://bc2ph0mpmc7s7" path="res://Sprite-0001.jpg" id="1_ljj5q"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_vk8ir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11k8h"]
+radius = 28.0
+height = 98.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arqqc"]
+radius = 98.4124
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_vk8ir")
+
+[node name="Sprite-0001" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -0.999998)
+scale = Vector2(1.78125, 3)
+texture = ExtResource("1_ljj5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_11k8h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_arqqc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

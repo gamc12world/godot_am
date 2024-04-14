@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqe7jevn0n8b7"
+path="res://.godot/imported/Alan Walker  The Spectre [Extended Intro Remix #10474].mp3-040e68d4791681835fb6a3ed33920ab3.mp3str"
+
+[deps]
+
+source_file="res://Alan Walker  The Spectre [Extended Intro Remix #10474].mp3"
+dest_files=["res://.godot/imported/Alan Walker  The Spectre [Extended Intro Remix #10474].mp3-040e68d4791681835fb6a3ed33920ab3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

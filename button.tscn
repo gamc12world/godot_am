@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://lua6e4b2t6ep"]
+
+[ext_resource type="Script" path="res://button.gd" id="1_5xo4j"]
+[ext_resource type="Texture2D" uid="uid://bj6u4lgjc0ev7" path="res://icon.svg" id="2_7q624"]
+[ext_resource type="AudioStream" uid="uid://cqe7jevn0n8b7" path="res://Alan Walker  The Spectre [Extended Intro Remix #10474].mp3" id="3_0ulhb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xo4j")
+color4 = Color(0.65098, 0.905882, 0.513726, 1)
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 338.0
+offset_right = 270.0
+offset_bottom = 405.0
+color = Color(0.705882, 0.0470588, 0.262745, 1)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(727, 378)
+scale = Vector2(1.76562, 1.61719)
+texture = ExtResource("2_7q624")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 287.0
+offset_right = 735.0
+offset_bottom = 398.0
+text = "click"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 1108.0
+offset_right = 1153.0
+offset_bottom = 20.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ulhb")
+
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="pressed" from="ColorPickerButton" to="." method="_on_color_picker_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
